@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Рандомное число
+    function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    const num = randomInt(1, 10);
+
+    let N = prompt('Я загадал число! Угадывай!');
+    while (true) {
+        if (N > num) {
+            N = prompt('Меньше!');
+        } else if (N < num) {
+            N = prompt('Больше')
+        } else {
+            alert(`Правильно, это ${num}`)
+            break;
+        }
+    }
+
+</script>
+</body>
+</html>

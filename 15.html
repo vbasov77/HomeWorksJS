@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна
+фотография используя метод filter. Исходные данные - массив products.
+2. Необходимо отсортировать массив products используя метод sort по цене,
+начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести
+отсортированный массив в консоль.
+-->
+<script>
+    "use strict";
+
+    const products = [
+        {
+            id: 3,
+            price: 127,
+            photos: [
+                "1.jpg",
+                "2.jpg",
+            ],
+        },
+        {
+            id: 5,
+            price: 499,
+            photos: [],
+        },
+        {
+            id: 10,
+            price: 26,
+            photos: [
+                "3.jpg",
+            ],
+        },
+        {
+            id: 8,
+            price: 78,
+        },
+    ];
+
+    function photoNotNull(array) {
+        const result = array.filter(arr => arr.photos != null);
+        return result;
+    }
+
+    function sortArr(array) {
+        const new_arr = [];
+        for (let i = 0; i < array.length; i++) {
+            new_arr.push(array[i].price);
+        }
+        new_arr.sort(compareNumbers);
+        let result_arr = [];
+        for (let j = 0; j < new_arr.length; j++) {
+            for (let q = 0; q < array.length; q++) {
+                if (new_arr[j] === array[q].price) {
+                    result_arr.push(array[q]);
+                }
+            }
+        }
+        return result_arr;
+    }
+    function compareNumbers(a, b) {
+        return a - b;
+    }
+
+    console.log(photoNotNull(products));
+    console.log(sortArr(products));
+</script>
+</body>
+</html>
